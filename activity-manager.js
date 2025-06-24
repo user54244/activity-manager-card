@@ -289,7 +289,7 @@ class ActivityManagerCard extends LitElement {
                     </div>
                     <div>
                     </div>
-                    <ha-textfield type="text" id="name" placeholder="Name">${activity.name}</ha-textfield>
+                    <ha-textfield type="text" id="name" placeholder="Name">${this._currentItem["name"]}</ha-textfield>
                     <ha-textfield
                         type="datetime-local"
                         id="update-last-completed"
