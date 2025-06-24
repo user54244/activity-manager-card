@@ -458,8 +458,17 @@ class ActivityManagerCard extends LitElement {
         if (this._currentItem == null) return;
 
         let name = this.shadowRoot.querySelector("#update-name");
+        let category = "Chores";
+        let frequency = "7:0:0";
         let last_completed = this.shadowRoot.querySelector("#update-last-completed");
-
+console.log(name.value);
+        this._hass.callService("activity_manager", "add_activity", {
+            name: name.value,
+            category: category,
+            frequency: frequency,
+            last_completed: last_completed.value,
+        });
+        
         // this._hass.callWS({
         //     type: "activity_manager/update",
         //     item_id: this._currentItem["id"],
@@ -468,10 +477,10 @@ class ActivityManagerCard extends LitElement {
         // });
 
 
-        this._hass.callService("activity_manager", "update_activity", {
-            name: name.value,
-            last_completed: last_completed.value,
-        });
+        // this._hass.callService("activity_manager", "update_activity", {
+        //     name: name.value,
+        //     last_completed: last_completed.value,
+        // });
 
 
         
