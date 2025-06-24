@@ -288,7 +288,7 @@ class ActivityManagerCard extends LitElement {
                         If you completed this earlier, change the date and time below.
                     </div>
 
-6
+7
                         <input
                             type="hidden"
                             id="update-category"
