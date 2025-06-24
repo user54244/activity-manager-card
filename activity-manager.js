@@ -279,7 +279,9 @@ class ActivityManagerCard extends LitElement {
         const day = date.getDate().toString().padStart(2, "0");
         const hours = date.getHours().toString().padStart(2, "0");
         const minutes = date.getMinutes().toString().padStart(2, "0");
-        let val = `${year}-${month}-${day}T${hours}:${minutes}`;
+        // let val = `${year}-${month}-${day}T${hours}:${minutes}`;
+        let val = this._currentItem ? this._currentItem["last_completed"] : "";
+        console.log(val);
 
         return html`
             <ha-dialog class="confirm-update" heading="Confirm">                
@@ -288,7 +290,7 @@ class ActivityManagerCard extends LitElement {
                         If you completed this earlier, change the date and time below.
                     </div>
 
-19
+20
                         <input
                             type="hidden"
                             id="update-category"
@@ -313,11 +315,10 @@ class ActivityManagerCard extends LitElement {
                         <label for="icon">Icon</label>
                         <ha-icon-picker type="text" id="update-icon" value="${this._currentItem ? this._currentItem["icon"] : ""}"></ha-icon-picker>
                     </div>
-               
+               last_completed: ${this._currentItem ? this._currentItem["last_completed"] : ""}
                     <div class="form-item">
                         <label for="last-completed">Last Completed</label>
-                        <ha-textfield type="datetime-local" id="update-last-completed" value="${this._currentItem ? this._currentItem["last_completed"] : ""}">
-                        </ha-textfield>
+                        <ha-textfield type="datetime-local" id="update-last-completed" value="${this._currentItem ? this._currentItem["last_completed"] : ""}"></ha-textfield>
                     </div>
 
                 </div>
