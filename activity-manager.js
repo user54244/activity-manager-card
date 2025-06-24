@@ -289,6 +289,8 @@ class ActivityManagerCard extends LitElement {
                     </div>
 
 7
+8
+9
                         <input
                             type="hidden"
                             id="update-category"
