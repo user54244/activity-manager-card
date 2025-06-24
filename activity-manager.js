@@ -288,7 +288,7 @@ class ActivityManagerCard extends LitElement {
                         If you completed this earlier, change the date and time below.
                     </div>
 
-18
+19
                         <input
                             type="hidden"
                             id="update-category"
@@ -313,12 +313,10 @@ class ActivityManagerCard extends LitElement {
                         <label for="icon">Icon</label>
                         <ha-icon-picker type="text" id="update-icon" value="${this._currentItem ? this._currentItem["icon"] : ""}"></ha-icon-picker>
                     </div>
-
-               Completed: ${this._currentItem ? this._currentItem["last_completed"] : ""}
                
                     <div class="form-item">
                         <label for="last-completed">Last Completed</label>
-                        <ha-textfield type="datetime-local" id="update-last-completed" value=${val}>
+                        <ha-textfield type="datetime-local" id="update-last-completed" value="${this._currentItem ? this._currentItem["last_completed"] : ""}">
                         </ha-textfield>
                     </div>
 
