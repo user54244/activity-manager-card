@@ -287,10 +287,21 @@ class ActivityManagerCard extends LitElement {
                     <div>
                         If you completed this earlier, change the date and time below.
                     </div>
-                    <div>
+                    
+                    <div class="form-item">
+                        <ha-textfield type="text" id="name" placeholder="Name" style="grid-column: 1 / span 2">${this._currentItem ? this._currentItem["name"] : ""}</ha-textfield>
                     </div>
-                    ${this._currentItem ? this._currentItem["name"] : ""}
-                    <ha-textfield type="text" id="name" placeholder="Name"></ha-textfield>
+                    
+                    <div class="form-item">
+                        <label for="frequency-day">Frequency</label>
+                        <div class="duration-input">
+                            <ha-textfield type="number" inputmode="numeric" no-spinner label="dd" id="frequency-day" value="0"></ha-textfield>
+                            <ha-textfield type="number" inputmode="numeric" no-spinner label="hh" id="frequency-hour" value="0"></ha-textfield>
+                            <ha-textfield type="number" inputmode="numeric" no-spinner label="mm" id="frequency-minute" value="0"></ha-textfield>
+                            <ha-textfield type="number" inputmode="numeric" no-spinner label="ss"id="frequency-second" value="0"></ha-textfield>
+                        </div>
+                    </div>
+                    
                     <ha-textfield
                         type="datetime-local"
                         id="update-last-completed"
