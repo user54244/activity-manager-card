@@ -273,21 +273,21 @@ class ActivityManagerCard extends LitElement {
     }
 
     _renderUpdateDialog() {
-        const date = new Date();
+        // const date = new Date();
+        const date = this._currentItem ? new Date(this._currentItem["last_completed"]) : new Date();
         const year = date.getFullYear();
         const month = (date.getMonth() + 1).toString().padStart(2, "0");
         const day = date.getDate().toString().padStart(2, "0");
         const hours = date.getHours().toString().padStart(2, "0");
         const minutes = date.getMinutes().toString().padStart(2, "0");
-        // let val = `${year}-${month}-${day}T${hours}:${minutes}`;
-        let val = this._currentItem ? this._currentItem["last_completed"] : "";
+        let val = `${year}-${month}-${day}T${hours}:${minutes}`;
         console.log(val);
 
         return html`
             <ha-dialog class="confirm-update" heading="Update Activity">                
                 <div class="confirm-grid">
 
-22
+24
                         <input
                             type="hidden"
                             id="update-category"
