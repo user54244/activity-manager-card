@@ -289,7 +289,7 @@ class ActivityManagerCard extends LitElement {
                     </div>
                     
                     <div class="form-item">
-                        <ha-textfield type="text" id="name" placeholder="Name" style="grid-column: 1 / span 2">${this._currentItem ? this._currentItem["name"] : ""}</ha-textfield>
+                        <ha-textfield type="text" id="name" placeholder="Name" style="grid-column: 1 / span 2" value="${this._currentItem ? this._currentItem["name"] : ""}"></ha-textfield>
                     </div>
                     
                     <div class="form-item">
