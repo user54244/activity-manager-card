@@ -288,8 +288,8 @@ class ActivityManagerCard extends LitElement {
                         If you completed this earlier, change the date and time below.
                     </div>
                     <div>
-                        Div 2
                     </div>
+                    <ha-textfield type="text" id="name" placeholder="Name">${activity.name}</ha-textfield>
                     <ha-textfield
                         type="datetime-local"
                         id="update-last-completed"
