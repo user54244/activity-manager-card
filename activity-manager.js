@@ -289,6 +289,7 @@ class ActivityManagerCard extends LitElement {
                     </div>
                     <div>
                     </div>
+                    ${this._currentItem ? this._currentItem["name"] : ""}
                     <ha-textfield type="text" id="name" placeholder="Name"></ha-textfield>
                     <ha-textfield
                         type="datetime-local"
