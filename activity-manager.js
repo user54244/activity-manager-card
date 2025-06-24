@@ -287,6 +287,12 @@ class ActivityManagerCard extends LitElement {
                     <div>
                         If you completed this earlier, change the date and time below.
                     </div>
+
+                        <input
+                            type="hidden"
+                            id="update-category"
+                            placeholder="Category"
+                            value="${this._config["category"]}" />
                     
                     <div class="form-item">
                         <ha-textfield type="text" id="update-name" placeholder="Name" style="grid-column: 1 / span 2" value="${this._currentItem ? this._currentItem["name"] : ""}"></ha-textfield>
@@ -295,20 +301,24 @@ class ActivityManagerCard extends LitElement {
                     <div class="form-item">
                         <label for="frequency-day">Frequency</label>
                         <div class="duration-input">
-                            <ha-textfield type="number" inputmode="numeric" no-spinner label="dd" id="frequency-day" value="0"></ha-textfield>
-                            <ha-textfield type="number" inputmode="numeric" no-spinner label="hh" id="frequency-hour" value="0"></ha-textfield>
-                            <ha-textfield type="number" inputmode="numeric" no-spinner label="mm" id="frequency-minute" value="0"></ha-textfield>
-                            <ha-textfield type="number" inputmode="numeric" no-spinner label="ss"id="frequency-second" value="0"></ha-textfield>
+                            <ha-textfield type="number" inputmode="numeric" no-spinner label="dd" id="update-frequency-day" value="0"></ha-textfield>
+                            <ha-textfield type="number" inputmode="numeric" no-spinner label="hh" id="update-frequency-hour" value="0"></ha-textfield>
+                            <ha-textfield type="number" inputmode="numeric" no-spinner label="mm" id="update-frequency-minute" value="0"></ha-textfield>
+                            <ha-textfield type="number" inputmode="numeric" no-spinner label="ss"id="update-frequency-second" value="0"></ha-textfield>
                         </div>
                     </div>
+
+                    <div class="form-item">
+                        <label for="icon">Icon</label>
+                        <ha-icon-picker type="text" id="update-icon" value=" value="${this._currentItem ? this._currentItem["icon"] : ""}"></ha-icon-picker>
+                    </div>
                     
-                    <ha-textfield
-                        type="datetime-local"
-                        id="update-last-completed"
-                        label="Activity Last Completed"
-                        value=${val}
-                    >
-                    </ha-textfield>
+                    <div class="form-item">
+                        <label for="last-completed">Last Completed</label>
+                        <ha-textfield type="datetime-local" id="update-last-completed" value=${val}>
+                        </ha-textfield>
+                    </div>
+
                 </div>
                 <mwc-button
                     slot="primaryAction"
@@ -458,10 +468,34 @@ class ActivityManagerCard extends LitElement {
         if (this._currentItem == null) return;
 
         let name = this.shadowRoot.querySelector("#update-name");
-        let category = "Chores";
-        let frequency = "7:0:0";
+        let category = this.shadowRoot.querySelector("#update-category");
+        let icon = this.shadowRoot.querySelector("#update-icon");
         let last_completed = this.shadowRoot.querySelector("#update-last-completed");
+        
+        let frequency = {};
+        frequency.days = utils._getNumber(
+            this.shadowRoot.querySelector("#update-frequency-day").value,
+            0
+        );
+        frequency.hours = utils._getNumber(
+            this.shadowRoot.querySelector("#update-frequency-hour").value,
+            0
+        );
+        frequency.minutes = utils._getNumber(
+            this.shadowRoot.querySelector("#update-frequency-minute").value,
+            0
+        );
+        frequency.seconds = utils._getNumber(
+            this.shadowRoot.querySelector("#update-frequency-second").value,
+            0
+        );
 
+        console.log(name.value);
+        console.log(category.value);
+        console.log(frequency);
+        console.log(icon.value);
+        console.log(last_completed.value);
+        
         this._hass.callWS({
             type: "activity_manager/remove",
             item_id: this._currentItem["id"],
@@ -469,25 +503,17 @@ class ActivityManagerCard extends LitElement {
         
         this._hass.callService("activity_manager", "add_activity", {
             name: name.value,
-            category: category,
+            category: category.value,
             frequency: frequency,
+            icon: icon.value,
             last_completed: last_completed.value,
         });
         
         // this._hass.callWS({
         //     type: "activity_manager/update",
         //     item_id: this._currentItem["id"],
-        //     name: name.value,
         //     last_completed: last_completed.value,
         // });
-
-
-        // this._hass.callService("activity_manager", "update_activity", {
-        //     name: name.value,
-        //     last_completed: last_completed.value,
-        // });
-
-
         
     }
 
