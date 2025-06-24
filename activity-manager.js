@@ -284,13 +284,10 @@ class ActivityManagerCard extends LitElement {
         console.log(val);
 
         return html`
-            <ha-dialog class="confirm-update" heading="Confirm">                
+            <ha-dialog class="confirm-update" heading="Update">                
                 <div class="confirm-grid">
-                    <div>
-                        If you completed this earlier, change the date and time below.
-                    </div>
 
-20
+21
                         <input
                             type="hidden"
                             id="update-category"
