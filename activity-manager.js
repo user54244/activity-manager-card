@@ -457,20 +457,24 @@ class ActivityManagerCard extends LitElement {
     _updateActivity() {
         if (this._currentItem == null) return;
 
-        let name = this.shadowRoot.querySelector(
-            "#update-name"
-        );
-        
-        let last_completed = this.shadowRoot.querySelector(
-            "#update-last-completed"
-        );
+        let name = this.shadowRoot.querySelector("#update-name");
+        let last_completed = this.shadowRoot.querySelector("#update-last-completed");
 
-        this._hass.callWS({
-            type: "activity_manager/update",
-            item_id: this._currentItem["id"],
+        // this._hass.callWS({
+        //     type: "activity_manager/update",
+        //     item_id: this._currentItem["id"],
+        //     name: name.value,
+        //     last_completed: last_completed.value,
+        // });
+
+
+        this._hass.callService("activity_manager", "update_activity", {
             name: name.value,
             last_completed: last_completed.value,
         });
+
+
+        
     }
 
     _removeActivity() {
