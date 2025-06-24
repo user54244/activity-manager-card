@@ -288,7 +288,7 @@ class ActivityManagerCard extends LitElement {
                         If you completed this earlier, change the date and time below.
                     </div>
 
-5
+6
                         <input
                             type="hidden"
                             id="update-category"
@@ -307,6 +307,11 @@ class ActivityManagerCard extends LitElement {
                             <ha-textfield type="number" inputmode="numeric" no-spinner label="mm" id="update-frequency-minute" value="0"></ha-textfield>
                             <ha-textfield type="number" inputmode="numeric" no-spinner label="ss"id="update-frequency-second" value="0"></ha-textfield>
                         </div>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="icon">Icon</label>
+                        <ha-icon-picker type="text" id="update-icon" value=" value=""></ha-icon-picker>
                     </div>
                     
                     <div class="form-item">
