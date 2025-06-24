@@ -285,9 +285,7 @@ class ActivityManagerCard extends LitElement {
             <ha-dialog class="confirm-update" heading="Confirm">
                 <div class="confirm-grid">
                     <div>
-                        Yay, you did it! 🎉 If you completed this earlier, feel
-                        free to change the date and time below. Great job on
-                        completing your activity!
+                        If you completed this earlier, change the date and time below.
                     </div>
                     <ha-textfield
                         type="datetime-local"
