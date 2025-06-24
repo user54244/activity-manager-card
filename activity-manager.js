@@ -280,7 +280,7 @@ class ActivityManagerCard extends LitElement {
         const hours = date.getHours().toString().padStart(2, "0");
         const minutes = date.getMinutes().toString().padStart(2, "0");
         let val = `${year}-${month}-${day}T${hours}:${minutes}`;
-
+console.log(${this._currentItem});
         return html`
             <ha-dialog class="confirm-update" heading="Confirm">                
                 <div class="confirm-grid">
@@ -288,7 +288,7 @@ class ActivityManagerCard extends LitElement {
                         If you completed this earlier, change the date and time below.
                     </div>
 
-13
+14
                         <input
                             type="hidden"
                             id="update-category"
@@ -299,6 +299,7 @@ class ActivityManagerCard extends LitElement {
                         <ha-textfield type="text" id="update-name" placeholder="Name" style="grid-column: 1 / span 2" value="${this._currentItem ? this._currentItem["name"] : ""}"></ha-textfield>
                     </div>
                     
+         ${this._currentItem ? this._currentItem["frequency_ms"] : ""}           
                 
                     <div class="form-item">
                         <label for="frequency-day">Frequency</label>
@@ -315,7 +316,6 @@ class ActivityManagerCard extends LitElement {
                         <ha-icon-picker type="text" id="update-icon" value="${this._currentItem ? this._currentItem["icon"] : ""}"></ha-icon-picker>
                     </div>
 
-               Due: ${this._currentItem ? this._currentItem["due"] : ""}
                Completed: ${this._currentItem ? this._currentItem["completed"] : ""}
                
                     <div class="form-item">
