@@ -288,7 +288,7 @@ class ActivityManagerCard extends LitElement {
                         If you completed this earlier, change the date and time below.
                     </div>
 
-16
+18
                         <input
                             type="hidden"
                             id="update-category"
@@ -297,9 +297,7 @@ class ActivityManagerCard extends LitElement {
                     
                     <div class="form-item">
                         <ha-textfield type="text" id="update-name" placeholder="Name" style="grid-column: 1 / span 2" value="${this._currentItem ? this._currentItem["name"] : ""}"></ha-textfield>
-                    </div>
-                    
-         ${this._currentItem ? this._currentItem["frequency_ms"] : ""}           
+                    </div> 
                 
                     <div class="form-item">
                         <label for="frequency-day">Frequency</label>
@@ -316,7 +314,7 @@ class ActivityManagerCard extends LitElement {
                         <ha-icon-picker type="text" id="update-icon" value="${this._currentItem ? this._currentItem["icon"] : ""}"></ha-icon-picker>
                     </div>
 
-               Completed: ${this._currentItem ? this._currentItem["completed"] : ""}
+               Completed: ${this._currentItem ? this._currentItem["last_completed"] : ""}
                
                     <div class="form-item">
                         <label for="last-completed">Last Completed</label>
