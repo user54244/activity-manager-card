@@ -281,13 +281,15 @@ class ActivityManagerCard extends LitElement {
         const hours = date.getHours().toString().padStart(2, "0");
         const minutes = date.getMinutes().toString().padStart(2, "0");
         let val = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+        
         console.log(val);
 
         return html`
             <ha-dialog class="confirm-update" heading="Update Activity">                
                 <div class="confirm-grid">
 
-24
+26
                         <input
                             type="hidden"
                             id="update-category"
@@ -297,7 +299,9 @@ class ActivityManagerCard extends LitElement {
                     <div class="form-item">
                         <ha-textfield type="text" id="update-name" placeholder="Name" style="grid-column: 1 / span 2" value="${this._currentItem ? this._currentItem["name"] : ""}"></ha-textfield>
                     </div> 
-                
+                    
+               frequency: ${this._currentItem ? this._currentItem["frequency"]["days"] : ""}
+               
                     <div class="form-item">
                         <label for="frequency-day">Frequency</label>
                         <div class="duration-input">
