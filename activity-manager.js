@@ -288,9 +288,7 @@ class ActivityManagerCard extends LitElement {
                         If you completed this earlier, change the date and time below.
                     </div>
 
-7
-8
-9
+10
                         <input
                             type="hidden"
                             id="update-category"
@@ -313,7 +311,7 @@ class ActivityManagerCard extends LitElement {
 
                     <div class="form-item">
                         <label for="icon">Icon</label>
-                        <ha-icon-picker type="text" id="update-icon" value=" value=""></ha-icon-picker>
+                        <ha-icon-picker type="text" id="update-icon" value="${this._currentItem ? this._currentItem["icon"] : ""}"></ha-icon-picker>
                     </div>
                     
                     <div class="form-item">
