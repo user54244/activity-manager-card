@@ -287,6 +287,7 @@ class ActivityManagerCard extends LitElement {
                     <div>
                         If you completed this earlier, change the date and time below.
                     </div>
+                    ${this._currentItem ? this._currentItem["name"] : ""}
                     
                     <div class="form-item">
                         <ha-textfield type="text" id="name" placeholder="Name" style="grid-column: 1 / span 2" value="${this._currentItem ? this._currentItem["name"] : ""}"></ha-textfield>
