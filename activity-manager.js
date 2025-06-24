@@ -287,7 +287,7 @@ class ActivityManagerCard extends LitElement {
                     <div>
                         If you completed this earlier, change the date and time below.
                     </div>
-                    1
+                    
                     <div class="form-item">
                         <ha-textfield type="text" id="update-name" placeholder="Name" style="grid-column: 1 / span 2" value="${this._currentItem ? this._currentItem["name"] : ""}"></ha-textfield>
                     </div>
@@ -461,7 +461,12 @@ class ActivityManagerCard extends LitElement {
         let category = "Chores";
         let frequency = "7:0:0";
         let last_completed = this.shadowRoot.querySelector("#update-last-completed");
-console.log(name.value);
+
+        this._hass.callWS({
+            type: "activity_manager/remove",
+            item_id: this._currentItem["id"],
+        });
+        
         this._hass.callService("activity_manager", "add_activity", {
             name: name.value,
             category: category,
