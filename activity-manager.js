@@ -287,10 +287,9 @@ class ActivityManagerCard extends LitElement {
                     <div>
                         If you completed this earlier, change the date and time below.
                     </div>
-                    ${this._currentItem ? this._currentItem["name"] : ""}
                     
                     <div class="form-item">
-                        <ha-textfield type="text" id="name" placeholder="Name" style="grid-column: 1 / span 2" value="${this._currentItem ? this._currentItem["name"] : ""}"></ha-textfield>
+                        <ha-textfield type="text" id="update-name" placeholder="Name" style="grid-column: 1 / span 2" value="${this._currentItem ? this._currentItem["name"] : ""}"></ha-textfield>
                     </div>
                     
                     <div class="form-item">
@@ -458,6 +457,10 @@ class ActivityManagerCard extends LitElement {
     _updateActivity() {
         if (this._currentItem == null) return;
 
+        let name = this.shadowRoot.querySelector(
+            "#update-name"
+        );
+        
         let last_completed = this.shadowRoot.querySelector(
             "#update-last-completed"
         );
@@ -465,6 +468,7 @@ class ActivityManagerCard extends LitElement {
         this._hass.callWS({
             type: "activity_manager/update",
             item_id: this._currentItem["id"],
+            name: name.value,
             last_completed: last_completed.value,
         });
     }
