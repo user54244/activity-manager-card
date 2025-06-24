@@ -280,7 +280,7 @@ class ActivityManagerCard extends LitElement {
         const hours = date.getHours().toString().padStart(2, "0");
         const minutes = date.getMinutes().toString().padStart(2, "0");
         let val = `${year}-${month}-${day}T${hours}:${minutes}`;
-console.log(${this._currentItem});
+
         return html`
             <ha-dialog class="confirm-update" heading="Confirm">                
                 <div class="confirm-grid">
@@ -288,7 +288,7 @@ console.log(${this._currentItem});
                         If you completed this earlier, change the date and time below.
                     </div>
 
-15
+16
                         <input
                             type="hidden"
                             id="update-category"
