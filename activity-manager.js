@@ -287,7 +287,8 @@ class ActivityManagerCard extends LitElement {
                     <div>
                         If you completed this earlier, change the date and time below.
                     </div>
-3
+
+5
                         <input
                             type="hidden"
                             id="update-category"
@@ -307,7 +308,12 @@ class ActivityManagerCard extends LitElement {
                             <ha-textfield type="number" inputmode="numeric" no-spinner label="ss"id="update-frequency-second" value="0"></ha-textfield>
                         </div>
                     </div>
-4
+                    
+                    <div class="form-item">
+                        <label for="last-completed">Last Completed</label>
+                        <ha-textfield type="datetime-local" id="update-last-completed" value=${val}>
+                        </ha-textfield>
+                    </div>
 
                 </div>
                 <mwc-button
