@@ -282,49 +282,13 @@ class ActivityManagerCard extends LitElement {
         let val = `${year}-${month}-${day}T${hours}:${minutes}`;
 
         return html`
-            <ha-dialog class="confirm-update" heading="Confirm">
-            
-                <form>
-                    <div class="am-add-form" >
-                        <input
-                            type="hidden"
-                            id="category"
-                            placeholder="Category"
-                            value="${this._config["category"]}" />
-
-                        <div class="form-item">
-                            <ha-textfield type="text" id="name" placeholder="Name" style="grid-column: 1 / span 2">
-                            </ha-textfield>
-                        </div>
-                        
-                        <div class="form-item">
-                            <label for="frequency-day">Frequency</label>
-                            <div class="duration-input">
-                                <ha-textfield type="number" inputmode="numeric" no-spinner label="dd" id="frequency-day" value="0"></ha-textfield>
-                                <ha-textfield type="number" inputmode="numeric" no-spinner label="hh" id="frequency-hour" value="0"></ha-textfield>
-                                <ha-textfield type="number" inputmode="numeric" no-spinner label="mm" id="frequency-minute" value="0"></ha-textfield>
-                                <ha-textfield type="number" inputmode="numeric" no-spinner label="ss"id="frequency-second" value="0"></ha-textfield>
-                            </div>
-                        </div>
-
-                        <div class="form-item">
-                            <label for="icon">Icon</label>
-                            <ha-icon-picker type="text" id="icon">
-                            </ha-icon-picker>
-                        </div>
-
-                        <div class="form-item">
-                            <label for="last-completed">Last Completed</label>
-                            <ha-textfield type="datetime-local" id="last-completed" value=${val}>
-                            </ha-textfield>
-                        </div>
-                    </div>
-                    </ha-form>
-                </form>
-                
+            <ha-dialog class="confirm-update" heading="Confirm">                
                 <div class="confirm-grid">
                     <div>
                         If you completed this earlier, change the date and time below.
+                    </div>
+                    <div>
+                        Div 2
                     </div>
                     <ha-textfield
                         type="datetime-local"
