@@ -282,33 +282,27 @@ class ActivityManagerCard extends LitElement {
         const minutes = date.getMinutes().toString().padStart(2, "0");
         let val = `${year}-${month}-${day}T${hours}:${minutes}`;
 
-        
-        console.log(val);
-
         return html`
             <ha-dialog class="confirm-update" heading="Update Activity">                
                 <div class="confirm-grid">
-
-26
-                        <input
-                            type="hidden"
-                            id="update-category"
-                            placeholder="Category"
-                            value="${this._config["category"]}" />
+                
+                    <input
+                        type="hidden"
+                        id="update-category"
+                        placeholder="Category"
+                        value="${this._config["category"]}" />
                     
                     <div class="form-item">
                         <ha-textfield type="text" id="update-name" placeholder="Name" style="grid-column: 1 / span 2" value="${this._currentItem ? this._currentItem["name"] : ""}"></ha-textfield>
-                    </div> 
+                    </div>
                     
-               frequency: ${this._currentItem ? this._currentItem["frequency"]["days"] : ""}
-               
                     <div class="form-item">
                         <label for="frequency-day">Frequency</label>
                         <div class="duration-input">
-                            <ha-textfield type="number" inputmode="numeric" no-spinner label="dd" id="update-frequency-day" value="0"></ha-textfield>
-                            <ha-textfield type="number" inputmode="numeric" no-spinner label="hh" id="update-frequency-hour" value="0"></ha-textfield>
-                            <ha-textfield type="number" inputmode="numeric" no-spinner label="mm" id="update-frequency-minute" value="0"></ha-textfield>
-                            <ha-textfield type="number" inputmode="numeric" no-spinner label="ss"id="update-frequency-second" value="0"></ha-textfield>
+                            <ha-textfield type="number" inputmode="numeric" no-spinner label="dd" id="update-frequency-day" value="${this._currentItem ? this._currentItem["frequency"]["days"] : ""}"></ha-textfield>
+                            <ha-textfield type="number" inputmode="numeric" no-spinner label="hh" id="update-frequency-hour" value="${this._currentItem ? this._currentItem["frequency"]["hours"] : ""}"></ha-textfield>
+                            <ha-textfield type="number" inputmode="numeric" no-spinner label="mm" id="update-frequency-minute" value="${this._currentItem ? this._currentItem["frequency"]["minutes"] : ""}"></ha-textfield>
+                            <ha-textfield type="number" inputmode="numeric" no-spinner label="ss"id="update-frequency-second" value="${this._currentItem ? this._currentItem["frequency"]["seconds"] : ""}"></ha-textfield>
                         </div>
                     </div>
 
