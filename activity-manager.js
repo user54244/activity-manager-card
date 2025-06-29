@@ -144,6 +144,7 @@ class ActivityManagerCard extends LitElement {
                 </div>
             </ha-card>
             ${this._renderAddDialog()} ${this._renderUpdateDialog()}
+            ${this._renderDoneDialog()}
             ${this._renderRemoveDialog()}
         `;
     }
