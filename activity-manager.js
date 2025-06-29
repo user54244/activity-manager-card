@@ -372,8 +372,22 @@ class ActivityManagerCard extends LitElement {
     }
 
     _renderDoneDialog() {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = (date.getMonth() + 1).toString().padStart(2, "0");
+        const day = date.getDate().toString().padStart(2, "0");
+        const hours = date.getHours().toString().padStart(2, "0");
+        const minutes = date.getMinutes().toString().padStart(2, "0");
+        let val = `${year}-${month}-${day}T${hours}:${minutes}`;
+        
         return html`
             <ha-dialog class="confirm-done">
+     
+                <input
+                    type="hidden"
+                    id="done-last-completed"
+                    value="${val}" />
+
                 <div>
                     Done
                     ${this._currentItem ? this._currentItem["name"] : ""}?
@@ -381,6 +395,7 @@ class ActivityManagerCard extends LitElement {
                 <mwc-button
                     slot="primaryAction"
                     dialogAction="discard"
+                    @click=${this._doneActivity}
                 >
                     Done
                 </mwc-button>
@@ -558,6 +573,20 @@ class ActivityManagerCard extends LitElement {
         //     last_completed: last_completed.value,
         // });
         
+    }
+    
+    _doneActivity() {
+        if (this._currentItem == null) return;
+
+        let last_completed = this.shadowRoot.querySelector(
+            "#done-last-completed"
+        );
+
+        this._hass.callWS({
+            type: "activity_manager/update",
+            item_id: this._currentItem["id"],
+            last_completed: last_completed.value,
+        });
     }
 
     _removeActivity() {
