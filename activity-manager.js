@@ -352,7 +352,7 @@ class ActivityManagerCard extends LitElement {
 
     _renderRemoveDialog() {
         return html`
-            <ha-dialog class="confirm-remove" heading="Confirm">
+            <ha-dialog class="confirm-remove">
                 <div>
                     Remove
                     ${this._currentItem ? this._currentItem["name"] : ""}?
