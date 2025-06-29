@@ -372,7 +372,7 @@ class ActivityManagerCard extends LitElement {
 
     _renderDoneDialog() {
         return html`
-            <ha-dialog class="confirm-remove" heading="Confirm">
+            <ha-dialog class="confirm-done" heading="Confirm">
                 <div>
                     Done
                     ${this._currentItem ? this._currentItem["name"] : ""}?
@@ -475,6 +475,13 @@ class ActivityManagerCard extends LitElement {
     };
 
     _showRemoveDialog(ev, item) {
+        ev.stopPropagation();
+        this._currentItem = item;
+        this.requestUpdate();
+        this.shadowRoot.querySelector(".confirm-remove").show();
+    }
+
+    _showDoneDialog(ev, item) {
         ev.stopPropagation();
         this._currentItem = item;
         this.requestUpdate();
