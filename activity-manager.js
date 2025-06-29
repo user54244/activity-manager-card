@@ -168,7 +168,9 @@ class ActivityManagerCard extends LitElement {
                               </svg>
                           </mwc-icon-button>
                       `
-                    : html`
+                    : ``}
+                ${this._config.mode == "basic"   
+                    ? html`
                           <mwc-icon-button
                               @click=${(ev) =>
                                   this._showDoneDialog(ev, activity)}
@@ -185,7 +187,8 @@ class ActivityManagerCard extends LitElement {
                                   />
                               </svg>
                           </mwc-icon-button>
-                        `}
+                      `
+                    : ``}
             </div>
         `;
     }
