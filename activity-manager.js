@@ -373,7 +373,7 @@ class ActivityManagerCard extends LitElement {
 
     _renderDoneDialog() {
         return html`
-            <ha-dialog class="confirm-done" heading="Confirm">
+            <ha-dialog class="confirm-done">
                 <div>
                     Done
                     ${this._currentItem ? this._currentItem["name"] : ""}?
@@ -382,7 +382,7 @@ class ActivityManagerCard extends LitElement {
                     slot="primaryAction"
                     dialogAction="discard"
                 >
-                    Remove
+                    Done
                 </mwc-button>
                 <mwc-button slot="secondaryAction" dialogAction="cancel">
                     Cancel
@@ -486,7 +486,7 @@ class ActivityManagerCard extends LitElement {
         ev.stopPropagation();
         this._currentItem = item;
         this.requestUpdate();
-        this.shadowRoot.querySelector(".confirm-remove").show();
+        this.shadowRoot.querySelector(".confirm-done").show();
     }
 
     _showUpdateDialog(item) {
