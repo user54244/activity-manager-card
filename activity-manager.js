@@ -41,6 +41,12 @@ class ActivityManagerCard extends LitElement {
     _currentItem = null;
     _activities = [];
 
+    constructor() {
+        super();
+        this.filterText = "";
+        this._filterListenerAttached = false;
+    }
+
     static getConfigElement() {
         return document.createElement("activity-manager-card-editor");
     }
@@ -55,6 +61,7 @@ class ActivityManagerCard extends LitElement {
         return {
             _hass: {},
             _config: {},
+            filterText: { type: String },
         };
     }
 
@@ -73,6 +80,16 @@ class ActivityManagerCard extends LitElement {
 
     firstUpdated() {
         (async () => await loadHaForm())();
+    }
+
+    updated() {
+        const input = this.shadowRoot?.querySelector('#filter-activities');
+        if (input && !this._filterListenerAttached) {
+            input.addEventListener('input', (e) => {
+                this.filterText = e.target.value.toLowerCase();
+            });
+            this._filterListenerAttached = true;
+        }
     }
 
     set hass(hass) {
@@ -105,7 +122,9 @@ class ActivityManagerCard extends LitElement {
                 <div class="content">
                     <div class="am-grid">
                         ${repeat(
-                            this._activities,
+                            this._activities.filter((activity) =>
+                                activity.name.toLowerCase().includes(this.filterText)
+                            ),
                             (activity) => activity.name,
                             (activity) => html`
                                 <div
@@ -302,9 +321,9 @@ class ActivityManagerCard extends LitElement {
                         </svg>
                     </mwc-icon-button>
                 </div>
-                <div class="filter-container">
-                    <ha-textfield type="text" label="Filter activities" id="filter-activities"></ha-textfield>
-                </div>
+            </div>
+            <div class="filter-container">
+                <ha-textfield type="text" label="Filter activities" id="filter-activities"></ha-textfield>
             </div>
         `;
     }
@@ -566,11 +585,11 @@ class ActivityManagerCard extends LitElement {
             0
         );
 
-        console.log(name.value);
-        console.log(category.value);
-        console.log(frequency);
-        console.log(icon.value);
-        console.log(last_completed.value);
+        // console.log(name.value);
+        // console.log(category.value);
+        // console.log(frequency);
+        // console.log(icon.value);
+        // console.log(last_completed.value);
         
         this._hass.callWS({
             type: "activity_manager/remove",
@@ -676,7 +695,8 @@ class ActivityManagerCard extends LitElement {
             cursor: pointer;
         }
         .filter-container {
-            display: none;
+            // display: none;
+            padding: 0px 12px 12px;
         }
         .am-grid {
             display: grid;
