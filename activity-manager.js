@@ -281,9 +281,8 @@ class ActivityManagerCard extends LitElement {
                 <div class="action-container">
                     <mwc-icon-button
                         @click=${() => {
-                            this.shadowRoot
-                                .querySelector(".filter-container")
-                                .show();
+                            const el = this.shadowRoot.querySelector(".filter-container");
+                            el.style.display = el.style.display === "none" ? "" : "none"
                         }}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -695,7 +694,7 @@ class ActivityManagerCard extends LitElement {
             cursor: pointer;
         }
         .filter-container {
-            // display: none;
+            display: none;
             padding: 0px 12px 12px;
         }
         .am-grid {
