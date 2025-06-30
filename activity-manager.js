@@ -47,6 +47,10 @@ class ActivityManagerCard extends LitElement {
         this._filterListenerAttached = false;
         this.showFilter = false;
     }
+    
+    _onFilterInput(e) {
+      this.filterText = e.target.value.toLowerCase();
+    }
 
     static getConfigElement() {
         return document.createElement("activity-manager-card-editor");
@@ -118,6 +122,10 @@ class ActivityManagerCard extends LitElement {
     }
 
     render() {
+        const filteredActivities = this._activities.filter(a =>
+            a.name.toLowerCase().includes(this.filterText)
+        );
+        
         return html`
             <ha-card>
                 ${this._renderHeader()}
@@ -127,15 +135,15 @@ class ActivityManagerCard extends LitElement {
                       type="text"
                       label="Filter activities"
                       id="filter-activities"
+                      .value=${this.filterText} 
+                      @input=${(e) => this._onFilterInput(e)}
                     ></ha-textfield>
                   </div>
                 ` : ""}
                 <div class="content">
                     <div class="am-grid">
                         ${repeat(
-                            this._activities.filter((activity) =>
-                                activity.name.toLowerCase().includes(this.filterText)
-                            ),
+                            filteredActivities,
                             (activity) => activity.name,
                             (activity) => html`
                                 <div
