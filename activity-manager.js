@@ -292,7 +292,12 @@ class ActivityManagerCard extends LitElement {
                     <mwc-icon-button
                         @click=${() => {
                             this.showFilter = !this.showFilter;
-                            this.requestUpdate();
+                            if (!this.showFilter) {
+                                this.filterText = "";
+                                const input = this.shadowRoot.querySelector("#filter-activities");
+                                if (input) input.value = "";
+                                this.requestUpdate();
+                            }
                         }}
                     >
                         <svg
