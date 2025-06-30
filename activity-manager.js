@@ -45,6 +45,7 @@ class ActivityManagerCard extends LitElement {
         super();
         this.filterText = "";
         this._filterListenerAttached = false;
+        this.showFilter = false;
     }
 
     static getConfigElement() {
@@ -119,9 +120,15 @@ class ActivityManagerCard extends LitElement {
         return html`
             <ha-card>
                 ${this._renderHeader()}
-                <div class="filter-container">
-                    <ha-textfield type="text" label="Filter activities" id="filter-activities"></ha-textfield>
-                </div>
+                ${this.showFilter ? html`
+                  <div class="filter-container">
+                    <ha-textfield
+                      type="text"
+                      label="Filter activities"
+                      id="filter-activities"
+                    ></ha-textfield>
+                  </div>
+                ` : ""}
                 <div class="content">
                     <div class="am-grid">
                         ${repeat(
@@ -284,9 +291,10 @@ class ActivityManagerCard extends LitElement {
                 <div class="action-container">
                     <mwc-icon-button
                         @click=${() => {
-                            const el = this.shadowRoot.querySelector(".filter-container");
-                            el.style.display = el.style.display === "none" ? "" : "none"
-                        }}>
+                            this.showFilter = !this.showFilter;
+                            this.requestUpdate();
+                        }}
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
@@ -694,7 +702,6 @@ class ActivityManagerCard extends LitElement {
             cursor: pointer;
         }
         .filter-container {
-            display: none;
             padding: 0px 12px 12px;
         }
         .am-grid {
