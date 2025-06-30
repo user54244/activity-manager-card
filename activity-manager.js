@@ -44,7 +44,6 @@ class ActivityManagerCard extends LitElement {
     constructor() {
         super();
         this.filterText = "";
-        this._filterListenerAttached = false;
         this.showFilter = false;
     }
     
@@ -89,12 +88,12 @@ class ActivityManagerCard extends LitElement {
     }
 
     updated() {
-        const input = this.shadowRoot?.querySelector('#filter-activities');
-        if (input && !this._filterListenerAttached) {
-            input.addEventListener('input', (e) => {
-                this.filterText = e.target.value.toLowerCase();
-            });
-            this._filterListenerAttached = true;
+        if (!this._filterListenerAttached) {
+          const input = this.shadowRoot.querySelector("#filter-activities");
+          input.addEventListener("input", (e) => {
+            this.filterText = e.target.value.toLowerCase();
+          });
+          this._filterListenerAttached = true;
         }
     }
 
