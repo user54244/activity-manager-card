@@ -62,6 +62,7 @@ class ActivityManagerCard extends LitElement {
         return {
             _hass: {},
             _config: {},
+            showFilter: { type: Boolean },
             filterText: { type: String },
         };
     }
@@ -289,14 +290,13 @@ class ActivityManagerCard extends LitElement {
                     <div class="primary">${this._config.header}</div>
                 </div>
                 <div class="action-container">
-                    <mwc-icon-button
+                    <mwc-icon-button 
                         @click=${() => {
                             this.showFilter = !this.showFilter;
                             if (!this.showFilter) {
                                 this.filterText = "";
                                 const input = this.shadowRoot.querySelector("#filter-activities");
                                 if (input) input.value = "";
-                                this.requestUpdate();
                             }
                         }}
                     >
