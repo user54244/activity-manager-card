@@ -119,6 +119,9 @@ class ActivityManagerCard extends LitElement {
         return html`
             <ha-card>
                 ${this._renderHeader()}
+                <div class="filter-container">
+                    <ha-textfield type="text" label="Filter activities" id="filter-activities"></ha-textfield>
+                </div>
                 <div class="content">
                     <div class="am-grid">
                         ${repeat(
@@ -320,9 +323,6 @@ class ActivityManagerCard extends LitElement {
                         </svg>
                     </mwc-icon-button>
                 </div>
-            </div>
-            <div class="filter-container">
-                <ha-textfield type="text" label="Filter activities" id="filter-activities"></ha-textfield>
             </div>
         `;
     }
