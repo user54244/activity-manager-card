@@ -320,7 +320,7 @@ class ActivityManagerCard extends LitElement {
                         @click=${() => {
                             this.shadowRoot
                                 .querySelector(".manage-form")
-                                .show();
+                                .open = true;
                         }}
                     >
                         <svg
@@ -550,20 +550,20 @@ class ActivityManagerCard extends LitElement {
         ev.stopPropagation();
         this._currentItem = item;
         this.requestUpdate();
-        this.shadowRoot.querySelector(".confirm-remove").show();
+        this.shadowRoot.querySelector(".confirm-remove").open = true;
     }
 
     _showDoneDialog(ev, item) {
         ev.stopPropagation();
         this._currentItem = item;
         this.requestUpdate();
-        this.shadowRoot.querySelector(".confirm-done").show();
+        this.shadowRoot.querySelector(".confirm-done").open = true;
     }
 
     _showUpdateDialog(item) {
         this._currentItem = item;
         this.requestUpdate();
-        this.shadowRoot.querySelector(".confirm-update").show();
+        this.shadowRoot.querySelector(".confirm-update").open = true;
     }
 
     _switchMode(ev) {
