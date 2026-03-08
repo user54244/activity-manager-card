@@ -89,11 +89,13 @@ class ActivityManagerCard extends LitElement {
 
     updated() {
         if (!this._filterListenerAttached) {
-          const input = this.shadowRoot.querySelector("#filter-activities");
-          input.addEventListener("input", (e) => {
-            this.filterText = e.target.value.toLowerCase();
-          });
-          this._filterListenerAttached = true;
+            const input = this.shadowRoot.querySelector("#filter-activities");
+            if (input) {
+                input.addEventListener("input", (e) => {
+                    this.filterText = e.target.value.toLowerCase();
+                });
+                this._filterListenerAttached = true;
+            }
         }
     }
 
