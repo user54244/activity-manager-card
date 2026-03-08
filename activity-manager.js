@@ -198,14 +198,7 @@ class ActivityManagerCard extends LitElement {
                                   this._showRemoveDialog(ev, activity)}
                               data-am-id=${activity.id}
                           >
-                              <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 24 24"
-                              >
-                                  <path
-                                      d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
-                                  />
-                              </svg>
+                              <ha-icon icon="mdi:delete"></ha-icon>
                           </mwc-icon-button>
                       `
                     : ``}
@@ -216,14 +209,7 @@ class ActivityManagerCard extends LitElement {
                                   this._showDoneDialog(ev, activity)}
                               data-am-id=${activity.id}
                           >
-                              <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 24 24"
-                              >
-                                  <path 
-                                      d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z">
-                                  />
-                              </svg>
+                              <ha-icon icon="mdi:check-circle"></ha-icon>
                           </mwc-icon-button>
                       `
                     : ``}
@@ -318,24 +304,10 @@ class ActivityManagerCard extends LitElement {
                                 .open = true;
                         }}
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                d="M14.3 21.7C13.6 21.9 12.8 22 12 22C6.5 22 2 17.5 2 12S6.5 2 12 2C13.3 2 14.6 2.3 15.8 2.7L14.2 4.3C13.5 4.1 12.8 4 12 4C7.6 4 4 7.6 4 12S7.6 20 12 20C12.4 20 12.9 20 13.3 19.9C13.5 20.6 13.9 21.2 14.3 21.7M7.9 10.1L6.5 11.5L11 16L21 6L19.6 4.6L11 13.2L7.9 10.1M18 14V17H15V19H18V22H20V19H23V17H20V14H18Z"
-                            />
-                        </svg>
+                        <ha-icon icon="mdi:plus"></ha-icon>
                     </mwc-icon-button>
                     <mwc-icon-button @click=${this._switchMode}>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z"
-                            />
-                        </svg>
+                        <ha-icon icon="mdi:dots-vertical"></ha-icon>
                     </mwc-icon-button>
                 </div>
             </div>
