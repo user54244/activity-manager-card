@@ -266,9 +266,7 @@ class ActivityManagerCard extends LitElement {
                 </form>
                 
                 <div slot="footer">
-                    <ha-button dialogAction="cancel">
-                        Cancel
-                    </ha-button>
+                    <ha-button @click=${() => this.shadowRoot.querySelector(".manage-form").open = false}>Cancel</ha-button>
                     <ha-button dialogAction="confirm" @click=${this._addActivity}>
                         Add
                     </ha-button>
@@ -382,9 +380,8 @@ class ActivityManagerCard extends LitElement {
                 </div>
                 
                 <div slot="footer">
-                    <ha-button dialogAction="cancel">
-                        Cancel
-                    </ha-button>
+                    
+                    <ha-button @click=${() => this.shadowRoot.querySelector(".confirm-remove").open = false}>Cancel</ha-button>
                     <ha-button dialogAction="confirm" @click=${this._removeActivity}>
                         Remove
                     </ha-button>
@@ -417,9 +414,7 @@ class ActivityManagerCard extends LitElement {
                 </div>
                 
                 <div slot="footer">
-                    <ha-button dialogAction="cancel">
-                        Cancel
-                    </ha-button>
+                    <ha-button @click=${() => this.shadowRoot.querySelector(".confirm-done").open = false}>Cancel</ha-button>
                     <ha-button dialogAction="confirm" @click=${this._doneActivity}>
                         Done
                     </ha-button>
