@@ -264,7 +264,8 @@ class ActivityManagerCard extends LitElement {
                         </div>
                     </div>
                 </form>
-                <div slot="actions">
+                
+                <div slot="footer">
                     <ha-button dialogAction="cancel">
                         Cancel
                     </ha-button>
@@ -272,6 +273,7 @@ class ActivityManagerCard extends LitElement {
                         Add
                     </ha-button>
                 </div>
+                
             </ha-dialog>
         `;
     }
@@ -373,11 +375,13 @@ class ActivityManagerCard extends LitElement {
     _renderRemoveDialog() {
         return html`
             <ha-dialog class="confirm-remove">
+            
                 <div>
                     Remove
                     ${this._currentItem ? this._currentItem["name"] : ""}?
                 </div>
-                <div slot="actions">
+                
+                <div slot="footer">
                     <ha-button dialogAction="cancel">
                         Cancel
                     </ha-button>
@@ -385,6 +389,7 @@ class ActivityManagerCard extends LitElement {
                         Remove
                     </ha-button>
                 </div>
+                
             </ha-dialog>
         `;
     }
@@ -410,7 +415,8 @@ class ActivityManagerCard extends LitElement {
                     Done
                     ${this._currentItem ? this._currentItem["name"] : ""}?
                 </div>
-                <div slot="actions">
+                
+                <div slot="footer">
                     <ha-button dialogAction="cancel">
                         Cancel
                     </ha-button>
@@ -418,6 +424,7 @@ class ActivityManagerCard extends LitElement {
                         Done
                     </ha-button>
                 </div>
+                
             </ha-dialog>
         `;
     }
