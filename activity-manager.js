@@ -364,14 +364,18 @@ class ActivityManagerCard extends LitElement {
                 </div>
                 
                 <div slot="footer">
-                    <ha-button dialogAction="cancel">Cancel</ha-button>
-                    <ha-button dialogAction="confirm" @click=${this._updateActivity}>Update</ha-button>
+                    <ha-button @click=${() => this.shadowRoot.querySelector(".confirm-update").open = false}>Cancel</ha-button>
+                    <ha-button @click=${this._updateActivity}>Update</ha-button>
                 </div>
                 
             </ha-dialog>
         `;
     }
 
+                // <div slot="footer">
+                //     <ha-button dialogAction="cancel">Cancel</ha-button>
+                //     <ha-button dialogAction="confirm" @click=${this._updateActivity}>Update</ha-button>
+                // </div>
     _renderRemoveDialog() {
         return html`
             <ha-dialog class="confirm-remove">
