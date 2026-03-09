@@ -372,10 +372,6 @@ class ActivityManagerCard extends LitElement {
         `;
     }
 
-                // <div slot="footer">
-                //     <ha-button dialogAction="cancel">Cancel</ha-button>
-                //     <ha-button dialogAction="confirm" @click=${this._updateActivity}>Update</ha-button>
-                // </div>
     _renderRemoveDialog() {
         return html`
             <ha-dialog class="confirm-remove">
@@ -596,6 +592,8 @@ class ActivityManagerCard extends LitElement {
             icon: icon.value,
             last_completed: last_completed.value,
         });
+
+        this.shadowRoot.querySelector(".confirm-update").open = false;
         
         // this._hass.callWS({
         //     type: "activity_manager/update",
