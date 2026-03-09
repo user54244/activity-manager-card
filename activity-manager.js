@@ -517,21 +517,21 @@ class ActivityManagerCard extends LitElement {
         this.requestUpdate();
     };
 
-    _showRemoveDialog(ev, item) {
+    async _showRemoveDialog(ev, item) {
         ev.stopPropagation();
         this._currentItem = item;
         this.requestUpdate();
         this.shadowRoot.querySelector(".confirm-remove").open = true;
     }
 
-    _showDoneDialog(ev, item) {
+    async _showDoneDialog(ev, item) {
         ev.stopPropagation();
         this._currentItem = item;
         this.requestUpdate();
         this.shadowRoot.querySelector(".confirm-done").open = true;
     }
 
-    _showUpdateDialog(item) {
+    async _showUpdateDialog(item) {
         this._currentItem = item;
         this.requestUpdate();
         await this.updateComplete;
