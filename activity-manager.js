@@ -521,6 +521,7 @@ class ActivityManagerCard extends LitElement {
         ev.stopPropagation();
         this._currentItem = item;
         this.requestUpdate();
+        await this.updateComplete;
         this.shadowRoot.querySelector(".confirm-remove").open = true;
     }
 
@@ -528,6 +529,7 @@ class ActivityManagerCard extends LitElement {
         ev.stopPropagation();
         this._currentItem = item;
         this.requestUpdate();
+        await this.updateComplete;
         this.shadowRoot.querySelector(".confirm-done").open = true;
     }
 
