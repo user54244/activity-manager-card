@@ -362,17 +362,17 @@ class ActivityManagerCard extends LitElement {
 
                 </div>
                 
-                <div slot="actions">
-                    <ha-button dialogAction="cancel">
+                    <ha-button slot="secondaryAction" dialogAction="cancel">
                         Cancel
                     </ha-button>
                     <ha-button
+                        slot="primaryAction"
                         dialogAction="confirm"
                         @click=${this._updateActivity}
                     >
                         Update
                     </ha-button>
-                </div>
+                
             </ha-dialog>
         `;
     }
