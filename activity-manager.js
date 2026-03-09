@@ -460,8 +460,7 @@ class ActivityManagerCard extends LitElement {
         name.value = "";
         icon.value = "";
 
-        let manageEl = this.shadowRoot.querySelector(".manage-form");
-        manageEl.close();
+        this.shadowRoot.querySelector(".manage-form").open = false;
     }
 
     _fetchData = async () => {
