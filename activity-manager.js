@@ -85,6 +85,12 @@ class ActivityManagerCard extends LitElement {
 
     firstUpdated() {
         (async () => await loadHaForm())();
+        
+        ['confirm-update', 'confirm-remove', 'confirm-done', 'manage-form'].forEach(cls => {
+            this.shadowRoot.querySelector(`.${cls}`).addEventListener('closed', () => {
+                this.shadowRoot.querySelector(`.${cls}`).open = false;
+            });
+        });
     }
 
     updated() {
