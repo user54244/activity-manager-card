@@ -534,6 +534,7 @@ class ActivityManagerCard extends LitElement {
     _showUpdateDialog(item) {
         this._currentItem = item;
         this.requestUpdate();
+        await this.updateComplete;
         this.shadowRoot.querySelector(".confirm-update").open = true;
     }
 
