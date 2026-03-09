@@ -193,24 +193,24 @@ class ActivityManagerCard extends LitElement {
             <div class="am-action">
                 ${this._config.mode == "manage"
                     ? html`
-                          <mwc-icon-button
+                          <ha-icon-button
                               @click=${(ev) =>
                                   this._showRemoveDialog(ev, activity)}
                               data-am-id=${activity.id}
                           >
                               <ha-icon icon="mdi:delete"></ha-icon>
-                          </mwc-icon-button>
+                          </ha-icon-button>
                       `
                     : ``}
                 ${this._config.mode == "basic"   
                     ? html`
-                          <mwc-icon-button
+                          <ha-icon-button
                               @click=${(ev) =>
                                   this._showDoneDialog(ev, activity)}
                               data-am-id=${activity.id}
                           >
                               <ha-icon icon="mdi:check-circle"></ha-icon>
-                          </mwc-icon-button>
+                          </ha-icon-button>
                       `
                     : ``}
             </div>
@@ -266,12 +266,12 @@ class ActivityManagerCard extends LitElement {
                     </ha-form>
                 </form>
                 <div slot="actions">
-                    <mwc-button dialogAction="cancel">
+                    <ha-button dialogAction="cancel">
                         Cancel
-                    </mwc-button>
-                    <mwc-button dialogAction="confirm" @click=${this._addActivity}>
+                    </ha-button>
+                    <ha-button dialogAction="confirm" @click=${this._addActivity}>
                         Add
-                    </mwc-button>
+                    </ha-button>
                 </div>
             </ha-dialog>
         `;
@@ -287,7 +287,7 @@ class ActivityManagerCard extends LitElement {
                     <div class="primary">${this._config.header}</div>
                 </div>
                 <div class="action-container">
-                    <mwc-icon-button 
+                    <ha-icon-button 
                         @click=${() => {
                             this.showFilter = !this.showFilter;
                             if (!this.showFilter) {
@@ -298,8 +298,8 @@ class ActivityManagerCard extends LitElement {
                         }}
                     >
                         <ha-icon icon="mdi:magnify"></ha-icon>
-                    </mwc-icon-button>
-                    <mwc-icon-button
+                    </ha-icon-button>
+                    <ha-icon-button
                         @click=${() => {
                             this.shadowRoot
                                 .querySelector(".manage-form")
@@ -307,10 +307,10 @@ class ActivityManagerCard extends LitElement {
                         }}
                     >
                         <ha-icon icon="mdi:plus"></ha-icon>
-                    </mwc-icon-button>
-                    <mwc-icon-button @click=${this._switchMode}>
+                    </ha-icon-button>
+                    <ha-icon-button @click=${this._switchMode}>
                         <ha-icon icon="mdi:dots-vertical"></ha-icon>
-                    </mwc-icon-button>
+                    </ha-icon-button>
                 </div>
             </div>
         `;
@@ -363,15 +363,15 @@ class ActivityManagerCard extends LitElement {
                 </div>
                 
                 <div slot="actions">
-                    <mwc-button dialogAction="cancel">
+                    <ha-button dialogAction="cancel">
                         Cancel
-                    </mwc-button>
-                    <mwc-button
+                    </ha-button>
+                    <ha-button
                         dialogAction="confirm"
                         @click=${this._updateActivity}
                     >
                         Update
-                    </mwc-button>
+                    </ha-button>
                 </div>
             </ha-dialog>
         `;
@@ -385,12 +385,12 @@ class ActivityManagerCard extends LitElement {
                     ${this._currentItem ? this._currentItem["name"] : ""}?
                 </div>
                 <div slot="actions">
-                    <mwc-button dialogAction="cancel">
+                    <ha-button dialogAction="cancel">
                         Cancel
-                    </mwc-button>
-                    <mwc-button dialogAction="confirm" @click=${this._removeActivity}>
+                    </ha-button>
+                    <ha-button dialogAction="confirm" @click=${this._removeActivity}>
                         Remove
-                    </mwc-button>
+                    </ha-button>
                 </div>
             </ha-dialog>
         `;
@@ -418,12 +418,12 @@ class ActivityManagerCard extends LitElement {
                     ${this._currentItem ? this._currentItem["name"] : ""}?
                 </div>
                 <div slot="actions">
-                    <mwc-button dialogAction="cancel">
+                    <ha-button dialogAction="cancel">
                         Cancel
-                    </mwc-button>
-                    <mwc-button dialogAction="confirm" @click=${this._doneActivity}>
+                    </ha-button>
+                    <ha-button dialogAction="confirm" @click=${this._doneActivity}>
                         Done
-                    </mwc-button>
+                    </ha-button>
                 </div>
             </ha-dialog>
         `;
