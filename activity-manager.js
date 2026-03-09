@@ -610,6 +610,8 @@ class ActivityManagerCard extends LitElement {
             item_id: this._currentItem["id"],
             last_completed: last_completed.value,
         });
+        
+        this.shadowRoot.querySelector(".confirm-done").open = false;
     }
 
     _removeActivity() {
@@ -619,6 +621,8 @@ class ActivityManagerCard extends LitElement {
             type: "activity_manager/remove",
             item_id: this._currentItem["id"],
         });
+        
+        this.shadowRoot.querySelector(".confirm-remove").open = false;
     }
 
     static styles = css`
