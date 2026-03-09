@@ -263,7 +263,6 @@ class ActivityManagerCard extends LitElement {
                             </ha-textfield>
                         </div>
                     </div>
-                    </ha-form>
                 </form>
                 <div slot="actions">
                     <ha-button dialogAction="cancel">
