@@ -265,12 +265,14 @@ class ActivityManagerCard extends LitElement {
                     </div>
                     </ha-form>
                 </form>
-                <mwc-button slot="primaryAction" dialogAction="discard" @click=${this._addActivity}>
-                    Add
-                </mwc-button>
-                <mwc-button slot="secondaryAction" dialogAction="cancel">
-                    Cancel
-                </mwc-button>
+                <div slot="actions">
+                    <mwc-button dialogAction="cancel">
+                        Cancel
+                    </mwc-button>
+                    <mwc-button dialogAction="confirm" @click=${this._addActivity}>
+                        Add
+                    </mwc-button>
+                </div>
             </ha-dialog>
         `;
     }
@@ -359,16 +361,18 @@ class ActivityManagerCard extends LitElement {
                     </div>
 
                 </div>
-                <mwc-button
-                    slot="primaryAction"
-                    dialogAction="discard"
-                    @click=${this._updateActivity}
-                >
-                    Update
-                </mwc-button>
-                <mwc-button slot="secondaryAction" dialogAction="cancel">
-                    Cancel
-                </mwc-button>
+                
+                <div slot="actions">
+                    <mwc-button dialogAction="cancel">
+                        Cancel
+                    </mwc-button>
+                    <mwc-button
+                        dialogAction="confirm"
+                        @click=${this._updateActivity}
+                    >
+                        Update
+                    </mwc-button>
+                </div>
             </ha-dialog>
         `;
     }
@@ -380,16 +384,14 @@ class ActivityManagerCard extends LitElement {
                     Remove
                     ${this._currentItem ? this._currentItem["name"] : ""}?
                 </div>
-                <mwc-button
-                    slot="primaryAction"
-                    dialogAction="discard"
-                    @click=${this._removeActivity}
-                >
-                    Remove
-                </mwc-button>
-                <mwc-button slot="secondaryAction" dialogAction="cancel">
-                    Cancel
-                </mwc-button>
+                <div slot="actions">
+                    <mwc-button dialogAction="cancel">
+                        Cancel
+                    </mwc-button>
+                    <mwc-button dialogAction="confirm" @click=${this._removeActivity}>
+                        Remove
+                    </mwc-button>
+                </div>
             </ha-dialog>
         `;
     }
@@ -415,16 +417,14 @@ class ActivityManagerCard extends LitElement {
                     Done
                     ${this._currentItem ? this._currentItem["name"] : ""}?
                 </div>
-                <mwc-button
-                    slot="primaryAction"
-                    dialogAction="discard"
-                    @click=${this._doneActivity}
-                >
-                    Done
-                </mwc-button>
-                <mwc-button slot="secondaryAction" dialogAction="cancel">
-                    Cancel
-                </mwc-button>
+                <div slot="actions">
+                    <mwc-button dialogAction="cancel">
+                        Cancel
+                    </mwc-button>
+                    <mwc-button dialogAction="confirm" @click=${this._doneActivity}>
+                        Done
+                    </mwc-button>
+                </div>
             </ha-dialog>
         `;
     }
