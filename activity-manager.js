@@ -293,12 +293,16 @@ class ActivityManagerCard extends LitElement {
                 </div>
                 <div class="action-container">
                     <ha-icon-button 
-                        @click=${() => {
+                        @click=${async () => {
                             this.showFilter = !this.showFilter;
                             if (!this.showFilter) {
                                 this.filterText = "";
                                 const input = this.shadowRoot.querySelector("#filter-activities");
                                 if (input) input.value = "";
+                            } else {
+                                await this.updateComplete;
+                                const input = this.shadowRoot.querySelector("#filter-activities");
+                                if (input) input.focus();
                             }
                         }}
                     >
